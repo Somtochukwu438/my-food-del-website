@@ -1,0 +1,108 @@
+.login-popup{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #00000090;
+    display: grid;
+}
+.login-popup-container{
+    place-self: center;
+    width: max(23vw,330px);
+    color: #808080;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    animation: fadeIn 0.5s;
+}
+.login-popup-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+.login-popup-title img{
+    width: 16px;
+    cursor: pointer;
+}
+.login-popup-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.login-popup-inputs input{
+    outline: none;
+    border: 1px solid #C9C9C9;
+    padding: 10px;
+    border-radius: 4px;
+}
+.login-popup-container button{
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+    background-color: #FF4C24;
+    font-size: 15px;
+    cursor: pointer;
+}
+.login-popup-condition {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+    gap: 10px; /* Space between the checkbox and text */
+    margin-top: -15px;
+    flex-direction: row; /* Align items in a row */
+}
+
+.login-popup-condition input {
+    margin-top: 2px; /* Adjust vertical alignment for the checkbox */
+}
+
+.login-popup p {
+    margin: 0; /* Remove default margin from paragraphs */
+    font-size: 14px; /* Optional: adjust the font size */
+}
+
+.login-popup p span {
+    color: #FF4C24;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+/* Wrapper around the password input and icon */
+.password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Styling for the password input field */
+.password-input-wrapper input {
+    width: 100%;
+    padding-right: 40px; /* Add space to avoid overlapping with the icon */
+    padding-left: 10px;
+    height: 40px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Toggle icon styling */
+.toggle-password-icon {
+    position: absolute;
+    right: 10px; /* Position it to the right inside the input field */
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.toggle-password-icon:hover {
+    opacity: 1; /* Makes icon fully visible when hovered */
+}
