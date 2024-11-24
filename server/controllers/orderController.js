@@ -1,4 +1,5 @@
 
+
 // Placing User Order for Frontend using stripe
 
 // Promo code definitions (moved from promo controller)
@@ -14,7 +15,7 @@ import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const CURRENCY = "usd";
 const DELIVERY_CHARGE = 5;
-const FRONTEND_URL = 'http://localhost:5173';
+const FRONTEND_URL = 'https://gourmet-express-frontend.onrender.com';
 
 // Promo code definitions
 const PROMO_CODES = {
