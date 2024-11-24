@@ -242,11 +242,10 @@ const Cart = () => {
     const req = { code: code };
     console.log(req);
     const isValid = await validatePromoCode(req);
-    console.log(isValid);
-    console.log(promoDiscount);
-    if (isValid) {
+    console.log(isValid.valid);
+    if (isValid.valid) {
+      setPromoMessage(`${isValid.discount * 100}% discount applied!`);
       setPromoCode(code);
-      setPromoMessage(`${promoDiscount * 100}% discount applied!`);
     } else {
       setPromoMessage('Invalid promo code. Please try again.');
     }

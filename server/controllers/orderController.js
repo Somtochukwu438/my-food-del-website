@@ -72,13 +72,12 @@ const placeOrder = async (req, res) => {
       cartData: {},
       $push: { orderHistory: newOrder._id }
     });
-    const discount = PROMO_CODES[promoCode];
-    console.log(PROMO_CODES[promoCode]);
+    // const discount = PROMO_CODES[promoCode];
 
     // Create Stripe line items
     const line_items = items.map((item) => {
-      const unitPrice = item.price * item.quantity;
-      const discountedPrice = discount;
+      const unitPrice = item.price;
+      const discountedPrice = unitPrice * (1 - discountPercentage);
       return {
         price_data: {
           currency: CURRENCY,

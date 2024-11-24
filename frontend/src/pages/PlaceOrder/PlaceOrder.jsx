@@ -187,6 +187,7 @@ const PlaceOrder = () => {
             address: data,
             items: orderItems,
             amount: getTotalCartAmount() + deliveryCharge,
+            promoCode: promoCode
         };
         if (payment === "stripe") {
             let response = await axios.post(url + "/api/order/place", orderData, { headers: { token } });

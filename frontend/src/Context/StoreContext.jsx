@@ -124,7 +124,7 @@ const StoreContextProvider = (props) => {
         if (data.valid) {
           setPromoDiscount(data.discount);
           setPromoCode(code.code);
-          return true;
+          return {valid: true, discount: data.discount, code: code.code};
         }
         else{
           return false;}
