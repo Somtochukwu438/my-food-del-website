@@ -107,6 +107,38 @@ const StoreContextProvider = (props) => {
     const [userName, setUserName] = useState(""); // Only store the user's name
     const currency = "$";
     const deliveryCharge = 5;
+    const [promoDiscount, setPromoDiscount] = useState(0);
+    const [promoCode, setPromoCode] = useState('');
+    
+    const validatePromoCode = async (code) => {
+      try {
+        const response = await fetch(`${url}/api/promo/validate`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(code)
+        });
+        
+        const data = await response.json();
+        if (data.valid) {
+          setPromoDiscount(data.discount);
+          setPromoCode(code.code);
+          return true;
+        }
+        else{
+          return false;}
+      } catch (error) {
+        console.error('Error validating promo code:', error);
+        return false;
+      }
+    };
+  
+    const getDiscountedTotal = () => {
+      const subtotal = getTotalCartAmount();
+      const discountAmount = subtotal * promoDiscount;
+      return subtotal - discountAmount;
+    };
 
     const addToCart = async (itemId) => {
         if (!cartItems[itemId]) {
@@ -177,6 +209,7 @@ const StoreContextProvider = (props) => {
             }
         }
     };
+    
 
     const logout = () => {
         localStorage.removeItem("token");
@@ -197,8 +230,12 @@ const StoreContextProvider = (props) => {
         }
         loadData();
     }, [token]);
-
+    
     const contextValue = {
+        validatePromoCode,
+        getDiscountedTotal,
+        promoDiscount,
+        promoCode,
         url,
         food_list,
         menu_list,

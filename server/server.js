@@ -7,6 +7,7 @@ import 'dotenv/config'
 import cartRouter from "./routes/cartRoute.js"
 import orderRouter from "./routes/orderRoute.js"
 import userModel from "./models/userModel.js"
+import promoRouter from "./routes/promoRoute.js"
 
 // app config
 const app = express()
@@ -26,6 +27,8 @@ app.use("/api/food", foodRouter)
 app.use("/images",express.static('uploads'))
 app.use("/api/cart", cartRouter)
 app.use("/api/order",orderRouter)
+app.use('/api/promo', promoRouter);
+
 
 
 app.get("/", (req, res) => {
