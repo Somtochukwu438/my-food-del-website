@@ -61,7 +61,7 @@ const placeOrder = async (req, res) => {
 			address,
 			promoCode: promoCode || null,
 			promoDiscount: discountAmount,
-			status: "Food Processing",
+			status: "Pending",
 		});
 		await newOrder.save();
 
@@ -172,7 +172,7 @@ const placeOrderCod = async (req, res) => {
 			address,
 			promoCode: promoCode || null,
 			promoDiscount: discountAmount,
-			status: "Food Processing",
+			status: "Pending",
 		}); 
 		await newOrder.save();
 		await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
