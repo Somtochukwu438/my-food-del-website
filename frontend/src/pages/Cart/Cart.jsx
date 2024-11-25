@@ -245,7 +245,7 @@ const Cart = () => {
     console.log(isValid.valid);
     if (isValid.valid) {
       setPromoMessage(`${isValid.discount * 100}% discount applied!`);
-      setPromoCode(code);
+      // setPromoCode(code);
     } else {
       setPromoMessage('Invalid promo code. Please try again.');
     }
